@@ -1,0 +1,10 @@
+def is_chef_happy(N, M):
+    if N < M:
+        return "YES"
+    else:
+        return "NO"
+
+N, M = map(int, input().split())
+
+print(is_chef_happy(N, M))
+

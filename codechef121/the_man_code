@@ -1,0 +1,21 @@
+def max_min_urinals(T, cases):
+    for n in cases:
+        if n == 1:
+            print(1, 1)
+        elif n == 2:
+            print(1, 1)
+        else:
+            if n % 2 == 0:
+                print(n // 2, n // 2)
+            else:
+                print((n + 1) // 2, n // 2)
+
+
+
+T = int(input("Enter the number of test cases: "))
+cases = []
+for _ in range(T):
+    n = int(input("Enter the number of urinals for test case {}: ".format(_+1)))
+    cases.append(n)
+
+max_min_urinals(T, cases)
