@@ -1,9 +1,8 @@
 def can_divide_watermelon(w):
-    if w % 2 == 1:
-        return "NO"
-    else:
+    if w % 2 == 0 and w > 2:
         return "YES"
+    else:
+        return "NO"
 
-w = int(input().strip())
-result = can_divide_watermelon(w)
-print(result)
+w = int(input())
+print(can_divide_watermelon(w))
