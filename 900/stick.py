@@ -1,17 +1,47 @@
-def main():
-    t = int(input().strip())
+def solve():
+    n = int(input())
+    vec = list(map(int, input().split()))
+    mp = {}
     
-    for _ in range(t):
-        n = int(input().strip())
-        a = [0] * 101
+    for num in vec:
+        if num in mp:
+            mp[num] += 1
+        else:
+            mp[num] = 1
+            
+    tot = 0
+    for count in mp.values():
+        tot += count // 3
         
-        for _ in range(n):
-            x = int(input().strip())
-            a[x] += 1
+    print(tot)
+
+def main():
+    import sys
+    input = sys.stdin.read
+    data = input().split()
+    
+    T = int(data[0])
+    index = 1
+    results = []
+    
+    for _ in range(T):
+        n = int(data[index])
+        index += 1
+        vec = list(map(int, data[index:index + n]))
+        index += n
         
-        sum_triplets = sum(x // 3 for x in a)
+        mp = {}
+        for num in vec:
+            if num in mp:
+                mp[num] += 1
+            else:
+                mp[num] = 1
         
-        print(sum_triplets)
+        tot = sum(count // 3 for count in mp.values())
+        results.append(tot)
+    
+    for result in results:
+        print(result)
 
 if __name__ == "__main__":
     main()
