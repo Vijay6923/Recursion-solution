@@ -1,41 +1,22 @@
 def max_bananas(t, test_cases):
     results = []
     
-    for i in range(t):
-        a, b, c = sorted(test_cases[i])
-        
+    for case in test_cases:
+        a, b, c = sorted(case)
         increments = 5
-    
-        if increments > 0:
-            to_increase = min(b - a, increments)
-            a += to_increase
-            increments -= to_increase
         
-        if increments > 0:
-            to_increase = min(c - a, increments)
-            a += to_increase
-            increments -= to_increase
-            
-        if increments > 0:
-            to_increase = min(c - b, increments)
-            b += to_increase
-            increments -= to_increase
-            
-        if increments > 0:
-            each = increments // 3
-            extra = increments % 3
-            a += each
-            b += each
-            c += each
-            if extra > 0:
+        while increments > 0:
+            if a <= b and a <= c:
                 a += 1
-            if extra > 1:
+            elif b <= a and b <= c:
                 b += 1
+            else:
+                c += 1
+            increments -= 1
         
         results.append(a * b * c)
     
     return results
-
 t = int(input())
 test_cases = [tuple(map(int, input().split())) for _ in range(t)]
 
