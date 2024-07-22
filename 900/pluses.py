@@ -9,7 +9,7 @@ def max_bananas(t, test_cases):
             if a <= b and a <= c:
                 a += 1
             elif b <= a and b <= c:
-                b += 1
+                b += 1 
             else:
                 c += 1
             increments -= 1
